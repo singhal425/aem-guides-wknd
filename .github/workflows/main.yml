@@ -1,6 +1,6 @@
 # Deploys code updates to my personal site on push to the master branch
 
-name: Deploy on Push
+name: Deploy on AEM
 on:
   deployment:
     branches:
