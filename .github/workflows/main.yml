@@ -2,19 +2,17 @@
 
 name: Deploy on AEM
 on:
-  deployment:
-    branches:
-      - main
+  workflow_dispatch:
+    
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 11
-      uses: actions/checkout@v2
-      with:
-        java-version: 11
-        server-id: github
-        settings-path: ${{ github.workspace }}
-    - name: Build and Deploy
-      run: mvn install -B -s $GITHUB_WORKSPACE/settings.xml
+      - name: Set up JDK 11
+        uses: actions/checkout@v2
+        with:
+          java-version: 11
+          server-id: github
+          settings-path: ${{ github.workspace }}
+      - name: Build and Deploy
+        run: mvn install -B -s $GITHUB_WORKSPACE/settings.xml
